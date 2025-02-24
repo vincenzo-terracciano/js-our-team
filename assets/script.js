@@ -3,6 +3,7 @@
 
 /* Select DOM elements */
 const cardsEl = document.querySelector("#cards .row");
+const formEl = document.getElementById("member-form")
 
 const teamMembers = [
   {
@@ -44,6 +45,26 @@ const teamMembers = [
 ];
 console.log(teamMembers);
 
+formEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.querySelector('input[name="name"]').value
+  console.log(name);
+  
+  const role = document.querySelector('input[name="role"]').value
+  console.log(role);
+  
+  const email = document.querySelector('input[name="email"]').value
+  console.log(email);
+  
+  const img = document.querySelector('input[name="image"]').value
+  console.log(img);
+
+  const member = {name, role, email, img};
+ 
+  const markup = getMemberMarkup(member);
+  cardsEl.innerHTML += markup
+  
+})
 
 /* functions */
 function getMemberMarkup(memberObj) {
