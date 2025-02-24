@@ -2,7 +2,7 @@
 (trovate l’array del team all’interno della cartella in allegato) */
 
 /* Select DOM elements */
-const cardsEl = document.getElementById("cards");
+const cardsEl = document.querySelector("#cards .row");
 
 const teamMembers = [
   {
@@ -48,22 +48,22 @@ console.log(teamMembers);
 /* functions */
 function getMemberMarkup(memberObj) {
   const { name, role, email, img } = memberObj
-  console.log(memberObj);
   
   const markup = `
-  <div class="col-4 d-flex bg-dark">
-    <div class="card-left">
-      <img src="${img}" alt="" width="100">
+  <div class="col-md-4">
+    <div class="card bg-dark d-flex flex-row">
+      <div class="card-left">
+        <img src="${img}" alt="" class="img-fluid">
+      </div>
+      <div class="card-right p-3">
+        <h3 class="text-white">${name}</h3>
+        <div class="text-white">${role}</div>
+        <div class="text-primary">${email}</div>
+      </div>
     </div>
-    <div class="card-right p-3">
-      <h3 class="text-white">${name}</h3>
-      <div class="text-white">${role}</div>
-      <div class="text-primary">${email}</div>
-    </div>
+
   </div>
   `
-  console.log(markup);
-  
   return markup
 }
 
